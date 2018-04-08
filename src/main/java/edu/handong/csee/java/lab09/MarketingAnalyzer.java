@@ -2,23 +2,44 @@ package edu.handong.csee.java.lab09;   // package name
 
 import java.util.Scanner;     // import Scanner Class
 
+/**
+ * This program is made for analyzing marketing sales of employee
+ * @author 21700184
+ *
+ */
 public class MarketingAnalyzer {    // make public class 'MarketingAnalyzer'
 	
 	private String name;   // declare string name
 	private double sales;   // declare double sales
 	
+	/**
+	 * This is method for getting name 
+	 * @return name 
+	 */
 	public String getName() {   // make public method 'getName'
 		return name;   // return name value
 	}
 	
+	/**
+	 * This is method for getting sales
+	 * @return sales
+	 */
 	public double getSales() {   // make public method 'getSales'
 		return sales;   // return sales value
 	}
 	
+	/**
+	 * This is method for setting name
+	 * @param n is name
+	 */
 	public void setName(String n) {   // make public method 'setName', and parameter is n
 		name = n;   // name is n 
 	}
 	
+	/**
+	 * This is method for setting sales
+	 * @param s is sales
+	 */
 	public void setSales(double s) {   // make public method 'setSales', and parameter is s
 		sales = s;   // sales is s
 	}
@@ -26,7 +47,11 @@ public class MarketingAnalyzer {    // make public class 'MarketingAnalyzer'
 	private double highestSales;   // declare double highestSales
 	private double averageSales;   // declare double averageSales
 	private MarketingAnalyzer[] team;   // declare Array team
-
+    
+	/**
+	 * main method
+	 * @param args
+	 */
 	public static void main(String[] args) {   // main method
 	   MarketingAnalyzer analyzer = new MarketingAnalyzer();  // declare object 'analyzer' to use MarketingAnalyzer Class
 
@@ -36,7 +61,10 @@ public class MarketingAnalyzer {    // make public class 'MarketingAnalyzer'
 	   analyzer.printResults();   // call printResults()
 	}
     
-	public void getData(){   // make public class 'getData'
+	/**
+	 * This is method for getting data
+	 */
+	public void getData(){   // make public method 'getData'
 	   System.out.println("Enter the number of salesmen: ");   // print message 'Enter the number of salesmen: ' 
 	   Scanner mykeyboard = new Scanner(System.in);   // declare object 'mykeyboard' to use Scanner Class
 
@@ -56,8 +84,11 @@ public class MarketingAnalyzer {    // make public class 'MarketingAnalyzer'
 	      team[i].setSales(sales);   // set the Sales
 	   }
 	}
-
-	public void computeAverage(){   // make public class 'computeAverage'
+    
+	/**
+	 * This is method for computing average
+	 */
+	public void computeAverage(){   // make public method 'computeAverage'
 	   double sum = 0;   // declare double sum
 
 	   for(int i = 0; i < team.length; i++){   // repeat i times from 0 to team.length
@@ -67,7 +98,10 @@ public class MarketingAnalyzer {    // make public class 'MarketingAnalyzer'
 	   averageSales = sum/team.length;   //  get average sales 
 	}
 
-	public void computeHighestSales(){   // make public class 'computeHighestSales'
+	/**
+	 * This is method for computing highestSales
+	 */
+	public void computeHighestSales(){   // make public method 'computeHighestSales'
 	   double highestSales = 0;   // declare double highestSales
 
 	   for(int i = 0; i < team.length; i++){   // repeat i times from 0 to team.length
@@ -78,7 +112,10 @@ public class MarketingAnalyzer {    // make public class 'MarketingAnalyzer'
 	   this.highestSales = highestSales;   // highestSales is Class MarketingAnalyzer's variable 'highestSales'
 	}
 
-	public void printResults(){   // make public class 'printResults'
+	/**
+	 * This is method for printing results
+	 */
+	public void printResults(){   // make public method 'printResults'
 	   System.out.println("Average: " + averageSales);  // print average of sales
 
 	   System.out.println("Salesmen who has the highest sales: ");  // print message "Salesmen who has the highest sales: "
