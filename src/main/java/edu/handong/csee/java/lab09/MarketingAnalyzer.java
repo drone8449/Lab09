@@ -1,7 +1,7 @@
 package edu.handong.csee.java.lab09; // package name
 
 import java.util.Scanner; // import Scanner Class
-import java.util.ArrayList;
+import java.util.ArrayList;  // import ArrayList Class
 
 /**
  * This program is made for analyzing marketing sales of employee
@@ -52,7 +52,7 @@ public class MarketingAnalyzer { // make public class 'MarketingAnalyzer'
 
 	private double highestSales; // declare double highestSales
 	private double averageSales; // declare double averageSales
-	private ArrayList<MarketingAnalyzer> team; // declare Array team
+	private ArrayList<MarketingAnalyzer> team; // declare ArrayList team
 
 	/**
 	 * main method
@@ -75,24 +75,24 @@ public class MarketingAnalyzer { // make public class 'MarketingAnalyzer'
 		System.out.println("Enter the name and sales of salesmen: "); // print message 'Enter the number of salesmen: '
 		Scanner mykeyboard = new Scanner(System.in); // declare object 'mykeyboard' to use Scanner Class
 
-		team = new ArrayList<MarketingAnalyzer>();
+		team = new ArrayList<MarketingAnalyzer>(); // allocate ArrayList 'team' in memory
 
-	    boolean done = false; 
+	    boolean done = false; // declare boolean variable 'done', having false value
 	    
-		while (!done) { 
+		while (!done) { // repeat 
 			System.out.print("Name? "); // print message 'Name? '
 			String name = mykeyboard.nextLine(); // input value is name
 			System.out.print("Sales? "); // print message 'Sales? '
 			double sales = mykeyboard.nextDouble(); // input value is sales
-			MarketingAnalyzer t = new MarketingAnalyzer();
-			t.setName(name);
-			t.setSales(sales);
-			team.add(t);
-			System.out.print("Do you want to get additional data?");
-			mykeyboard.nextLine();
-			String ans = mykeyboard.nextLine();
-			if(!ans.equalsIgnoreCase ("yes"))
-				done = true;
+			MarketingAnalyzer t = new MarketingAnalyzer();  // declare object 't' to use MarketingAnalyzer
+			t.setName(name); // name value store to t.setName
+			t.setSales(sales); // sales value store to t.setSales
+			team.add(t); // t's values add to ArrayList 'team'
+			System.out.print("Do you want to get additional data?"); // print message 'Do you want to get additional data?'
+			mykeyboard.nextLine(); // get enter value 
+			String ans = mykeyboard.nextLine(); // input value is 'ans'
+			if(!ans.equalsIgnoreCase ("yes")) // if 'ans' is not 'yes'
+				done = true; // done have true value
 		}
 	}
 
@@ -102,7 +102,7 @@ public class MarketingAnalyzer { // make public class 'MarketingAnalyzer'
 	public void computeAverage() { // make public method 'computeAverage'
 		double sum = 0; // declare double sum
      
-		for (int i = 0; i < team.size(); i++) { // repeat i times from 0 to team.length
+		for (int i = 0; i < team.size(); i++) { // repeat i times from 0 to team.size()
 			sum = sum + team.get(i).getSales(); // get everyone's sales
 		}
 
@@ -115,8 +115,8 @@ public class MarketingAnalyzer { // make public class 'MarketingAnalyzer'
 	public void computeHighestSales() { // make public method 'computeHighestSales'
 		double highestSales = 0; // declare double highestSales
 
-		for (int i = 0; i < team.size(); i++) { // repeat i times from 0 to team.length
-			if (highestSales < team.get(i).getSales()) // if team[i].getSales is bigger than anything else
+		for (int i = 0; i < team.size(); i++) { // repeat i times from 0 to team.size()
+			if (highestSales < team.get(i).getSales()) // if team.get(i).getSales is bigger than anything else
 				highestSales = team.get(i).getSales(); // get highestSales
 		}
 
@@ -129,10 +129,9 @@ public class MarketingAnalyzer { // make public class 'MarketingAnalyzer'
 	public void printResults() { // make public method 'printResults'
 		System.out.println("Average: " + averageSales); // print average of sales
 
-		System.out.println("Salesmen who has the highest sales: "); // print message "Salesmen who has the highest
-																	// sales: "
+		System.out.println("Salesmen who has the highest sales: "); // print message "Salesmen who has the highest sales: "
 
-		for (int i = 0; i < team.size(); i++) { // repeat i times from 0 to team.length
+		for (int i = 0; i < team.size(); i++) { // repeat i times from 0 to team.size()
 			if (team.get(i).getSales() == highestSales) { // if get highestSales team
 				System.out.println("Name: " + team.get(i).getName()); // print highestSales team name
 				System.out.println("Sales: " + team.get(i).getSales()); // print highestSales team's sales
